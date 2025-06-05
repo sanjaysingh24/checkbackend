@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(cors({
-  origin: 'http://localhost:5173', // Replace with your actual Vercel domain
+  origin: 'https://checkfrontend-delta.vercel.app', // Replace with your actual Vercel domain
   credentials: true
 }));
 
