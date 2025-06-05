@@ -11,7 +11,16 @@ app.use(cors({
   origin: 'https://checkfrontend-delta.vercel.app', // Replace with your actual Vercel domain
   credentials: true
 }));
+app.get("/",(req,res)=>{
+    const token = req.cookies.heytoken;
+  console.log('Cookie:', token);
 
+  if (token) {
+    res.json({ message: `Cookie received: ${token}` });
+  } else {
+    res.status(400).json({ error: 'No cookie found' });
+  }
+})
 app.post('/check', (req, res) => {
   const token = req.cookies.heytoken;
   console.log('Cookie:', token);
